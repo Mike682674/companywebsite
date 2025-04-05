@@ -25,12 +25,11 @@
 }
 
 
-@media (max-width: 560px) {
+@media (max-width: 768px) {
     .cert-logo {
-        width: 35px; /* Adjust for very small screens */
+        width: 40px; /* Reduce size for smaller screens */
     }
 }
-
 
 .container-fluid {
     width: 100%;
