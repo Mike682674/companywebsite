@@ -1,31 +1,42 @@
 /*******************************/
 /********* General CSS *********/
 /*******************************/
-.logo img {
-    max-width: 100%; /* Scales the images proportionally */
-    height: auto; /* Maintains aspect ratio */
-    margin: 10px; /* Adds spacing between images */
+.logo {
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    justify-content: flex-start; /* Justify everything to the left */
+    gap: 10px; /* Adds spacing between the main logo and the cert logos */
+}
+
+.main-logo {
+    flex-shrink: 0; /* Prevents the main logo from resizing */
+}
+
+.cert-logos {
+    display: flex;
+    gap: 10px; /* Adds spacing between each cert logo */
+    flex-wrap: wrap; /* Ensures logos wrap properly on smaller screens */
 }
 
 .cert-logo {
-    max-width: 150px; /* Adjust size for certification images */
-    display: inline-block; /* Keeps them side by side */
+    border-radius: 10px; /* Adjusts the corner roundness (higher value = more rounded) */
+    width: 50px; /* Set the size of the cert logos */
+    height: auto; /* Ensures the aspect ratio is preserved */
 }
 
-.logo {
-    display: flex;
-    justify-content: left; /* Centers images horizontally */
-    align-items: left; /* Centers images vertically */
-    flex-wrap: wrap; /* Allows them to wrap if needed */
-    gap: 5px; /* Adds spacing between logos */
-}
+
+
 
 
 @media (max-width: 768px) {
     .cert-logo {
-        max-width: 100px; /* Smaller sizes for mobile */
+        width: 40px; /* Reduce size for smaller screens */
     }
 }
+
+
+
+
 
 .container-fluid {
     width: 100%;
