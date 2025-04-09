@@ -29,7 +29,37 @@
             $('.carousel, .page-header').css("margin-top", "0");
         }
     });
+
+
+    $('#custom-carousel').carousel(); // For custom-carousel ID
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const servicesLink = document.querySelector('.nav-link.dropdown-toggle[href="service.html"]');
     
+        servicesLink.addEventListener('click', (event) => {
+            // Allow navigation only when not triggering the dropdown
+            if (!event.target.closest('.dropdown-menu')) {
+                window.location.href = 'service.html'; // Redirect to services.html
+            }
+        });
+    });
+
+
+    
+    const feedbackItems = document.querySelectorAll('.feedback-item');
+    let currentIndex = 0;
+    
+    document.querySelector('.control-prev').addEventListener('click', () => {
+        feedbackItems[currentIndex].classList.remove('visible');
+        currentIndex = (currentIndex - 1 + feedbackItems.length) % feedbackItems.length;
+        feedbackItems[currentIndex].classList.add('visible');
+    });
+    
+    document.querySelector('.control-next').addEventListener('click', () => {
+        feedbackItems[currentIndex].classList.remove('visible');
+        currentIndex = (currentIndex + 1) % feedbackItems.length;
+        feedbackItems[currentIndex].classList.add('visible');
+    });
     
     // Dropdown on mouse hover
     $(document).ready(function () {
@@ -69,6 +99,9 @@
             $videoSrc = $(this).data("src");
         });
         console.log($videoSrc);
+
+
+    //load more minimize
 
 
     //video modal for about and index
@@ -238,19 +271,7 @@
         }
     });
     
-    
-    // Portfolio isotope and filter
-    var portfolioIsotope = $('.portfolio-container').isotope({
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-    });
-
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('filter-active');
-        $(this).addClass('filter-active');
-
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
-    });
+   
     
 })(jQuery);
 

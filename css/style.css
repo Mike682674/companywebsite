@@ -10,6 +10,10 @@
 
 .main-logo {
     flex-shrink: 0; /* Prevents the main logo from resizing */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    max-height: 60px; /* Adaptive sizing */
+    width: auto;
 }
 
 .cert-logos {
@@ -20,20 +24,72 @@
 
 .cert-logo {
     border-radius: 10px; /* Adjusts the corner roundness (higher value = more rounded) */
+    box-shadow: 5px 3px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for cert logos */
     width: 50px; /* Set the size of the cert logos */
     height: auto; /* Ensures the aspect ratio is preserved */
 }
 
-
-@media (max-width: 768px) {
+/* Adjustments for very small screens */
+@media (max-width: 480px) {
     .cert-logo {
-        width: 40px; /* Reduce size for smaller screens */
+        width: 30px; /* Adjust for very small screens */.page-header {
+            position: relative;
+            color: #ffffff;
+            text-align: center;
+            padding: 150px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/careerheader.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-header h2 {
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            padding: 10px 20px; /* Adds padding around the text */
+            border-radius: 8px; /* Slightly rounds the corners */
+            display: inline-block; /* Ensures the background adjusts to text width */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Adds shadow for depth */
+        }
+        
+        .page-header a {
+            color: #ffd700;
+            text-decoration: none;
+            margin: 0 5px;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        .page-header a:hover {
+            color: #ffffff;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .page-header h2 {
+                font-size: 28px;
+                padding: 8px 15px; /* Adjust padding for smaller screens */
+            }
+        
+            .page-header {
+                padding: 30px 0;
+            }
+        }
+        nav
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15); /* Lighter shadow on small screens */
+        }
     }
-}
 
+/**********************************/
+/************ General CSS **********/
+/**********************************/
 .container-fluid {
     width: 100%;
 }
+
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -53,17 +109,17 @@ body {
 }
 
 h1,
-h2, 
-h3, 
+h2,
+h3,
 h4,
-h5, 
+h5,
 h6 {
     color: #030f27;
 }
 
 a {
     color: #666666;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 a:hover,
@@ -78,14 +134,9 @@ a:focus {
     box-shadow: none;
 }
 
-.wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1366px;
-    margin: 0 auto;
-    background: #ffffff;
-}
-
+/**********************************/
+/*********** Back-to-Top **********/
+/**********************************/
 .back-to-top {
     position: fixed;
     display: none;
@@ -98,7 +149,7 @@ a:focus {
     font-size: 22px;
     right: 15px;
     bottom: 15px;
-    transition: background 0.5s;
+    transition: 0.5s;
     z-index: 9;
 }
 
@@ -111,10 +162,18 @@ a:focus {
     padding-top: 10px;
 }
 
+/**********************************/
+/********** Button Styling ********/
+/**********************************/
 .btn {
-    transition: .3s;
+    padding: 10px 20px;
+    background-color: #fdbe33;
+    color: #030f27;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
 }
-
 
 /**********************************/
 /********** Top Bar CSS ***********/
@@ -197,6 +256,32 @@ a:focus {
 /**********************************/
 /*********** Nav Bar CSS **********/
 /**********************************/
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
+}
+
+.dropdown-menu {
+    display: none; /* Default hidden */
+    position: absolute;
+    background-color: #ffffff;
+    border: 5px solid #162886;
+    margin-top: 10px;
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #030f27;
+}
+
+.dropdown-item:hover {
+    background-color: #fdbe33;
+    color: #030f27;
+}
+
+
+
 .nav-bar {
     position: relative;
     background: #fdbe33;
@@ -211,15 +296,16 @@ a:focus {
     position: fixed;
     top: 0;
     width: 100%;
-    max-width: 1366px;
+    max-width: 2440px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
     z-index: 999;
 }
 
 .nav-bar .navbar {
     height: 100%;
-    background: #002635 !important;
+    background: #002a35 !important;
 }
+
 
 .navbar-dark .navbar-nav .nav-link,
 .navbar-dark .navbar-nav .nav-link:focus,
@@ -300,6 +386,8 @@ a:focus {
 /*******************************/
 /******** Carousel CSS *********/
 /*******************************/
+
+
 .carousel {
     position: relative;
     width: 100%;
@@ -1318,7 +1406,7 @@ img {
     margin: 45px 0;
     padding: 90px 0;
     text-align: center;
-    background: linear-gradient(rgba(3, 15, 39, .9), rgba(3, 15, 39, .9)), url(../img/carousel-1.jpg);
+    background: linear-gradient(rgba(3, 15, 39, .9), rgba(3, 15, 39, .9)), url(../img/houseofitlogo.png);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -1963,8 +2051,38 @@ img {
 /******** Portfolio CSS ********/
 /*******************************/
 .portfolio {
+    display: block; /* Default state */
     position: relative;
     padding: 45px 0;
+}
+
+#portfolio-filters {
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap; /* Allows filters to wrap on smaller screens */
+    justify-content: center; /* Align filters to the center */
+    gap: 10px; /* Add space between filters */
+}
+
+#portfolio-filters li {
+    list-style: none; /* Remove bullets */
+    cursor: pointer; /* Show pointer cursor for clickable items */
+    padding: 8px 15px;
+    background-color: #030f27; /* Dark background for the filters */
+    color: #ffffff; /* White text color */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#portfolio-filters li:hover {
+    background-color: #fdbe33; /* Highlight on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+#portfolio-filters .filter-active {
+    background-color: #fdbe33; /* Highlight active filter */
+    color: #030f27; /* Dark text for contrast */
 }
 
 .portfolio #portfolio-flters {
@@ -2081,25 +2199,83 @@ img {
 }
 
 .portfolio .portfolio-warp a.btn {
-    width: 60px;
-    height: 60px;
-    padding: 3px 0 0 3px;
-    display: flex;
+    width: auto; /* Allow the button width to adjust based on the text length */
+    min-width: 40px; /* Keep a minimum width for the button */
+    height: auto; /* Let the height adjust to fit the text */
+    padding: 5px 5px; /* Add more padding for longer text */
+    display: inline-flex; /* Inline flex for text alignment */
     align-items: center;
     justify-content: center;
-    font-size: 60px;
-    line-height: 60px;
-    font-weight: 100;
+    font-size: 16px; /* Adjust font size to fit within the button */
+    line-height: 1.5; /* Adjust line height for better spacing */
+    font-weight: 700; /* Make the text bold for better readability */
     color: #030f27;
-    background: #ffffff;
-    border-radius: 0;
-    transition: .3s;
+    background: #fdbe33;
+    border-radius: 5px; /* Optional rounded corners */
+    transition: 0.3s;
+    text-align: center; /* Center align the text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    margin-right: 10px; /* Add gap between the button and the portfolio right edge */
 }
 
 .portfolio .portfolio-warp:hover a.btn {
     color: #ffffff;
     background: #fdbe33;
 }
+
+/**css for portfolio hide portfolios beyon 6)**/
+
+
+#portfolio-flters {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+#portfolio-flters li {
+    cursor: pointer;
+    padding: 8px 15px;
+    background-color: #030f27;
+    color: #ffffff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#portfolio-flters li:hover {
+    background-color: #fdbe33;
+}
+
+#portfolio-flters .filter-active {
+    background-color: #fdbe33;
+    color: #030f27;
+}
+
+.portfolio-item {
+    margin-bottom: 20px; /* Spacing between items */
+}
+
+
+.portfolio-container {
+    margin-bottom: 0; /* Remove any default bottom margin */
+}
+
+.row.portfolio-container {
+    margin-bottom: 0; /* Specifically ensure there's no gap below portfolios */
+}
+
+.row > .col-12 {
+    margin-top: 0; /* Ensure no top margin for the Load More button container */
+    margin-bottom: 0; /* Ensure no unnecessary spacing at the bottom */
+    padding: 0; /* Remove any padding within the container */
+}
+
+.load-more-btn {
+    margin-top: 0; /* Eliminate spacing above the button */
+}
+
 
 
 /*******************************/
@@ -2160,7 +2336,7 @@ img {
 
 .contact .contact-text p {
     margin: 0;
-    color: #ffffff;
+    color: #fefcfc;
     font-size: 16px;
 }
 
@@ -2174,7 +2350,7 @@ img {
 }
 
 .contact .contact-form input {
-    color: #ffffff;
+    color: #0a0000;
     height: 40px;
     border-radius: 0;
     border-width: 1px;
@@ -2183,7 +2359,7 @@ img {
 }
 
 .contact .contact-form textarea {
-    color: #ffffff;
+    color: #0f0e0e;
     height: 185px;
     border-radius: 0;
     border-width: 1px;
@@ -2205,9 +2381,6 @@ img {
   color: #ffffff;
 }
 
-.contact .contact-form .form-control::-ms-input-placeholder {
-  color: #ffffff;
-}
 
 .contact .contact-form .btn {
     padding: 16px 30px;
@@ -2293,21 +2466,36 @@ img {
     width: 25px;
 }
 
-.footer .footer-social {
-    position: relative;
-    margin-top: 20px;
+/**new**/
+
+.footer-contact p,
+.footer-link ul li,
+.footer-social ul li {
+    margin-bottom: 10px;
+    font-size: 14px; /* Adjust font size for consistency */
+    text-align: left; /* Matches "Services Areas" and "Office Contact" */
 }
 
-.footer .footer-social a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    padding: 7px 0;
-    text-align: center;
-    border: 1px solid rgba(256, 256, 256, .3);
-    border-radius: 60px;
-    transition: .3s;
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
 }
+
+
+.footer-social ul li a {
+    color: #fdbe33; /* Highlight color for links */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-social ul li a:hover {
+    color: #ffffff; /* Change to white on hover */
+}
+/**new**/
+
+
 
 .footer .footer-social a i {
     font-size: 15px;

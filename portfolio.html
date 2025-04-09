@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>HOUSE OF I.T-Company Website</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="House of I.T" name="keywords">
+        <meta content="GPON" name="keywords">
+        <meta content="Stuctured Cabling" name="keywords">
+        <meta content="Fiber Solution, ONU, ONT, DACS, CCTV, AP, UPS" name="keywords">
+        <meta content="Construction, IT design, IT Solutions" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.png" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet"> 
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="wrapper">
+              <!-- Top Bar Start -->
+              <div class="top-bar">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="logo">
+                                <a href="index.html"> 
+                                    <img src="img/houseofitlogo.png" alt="Logo" class="img-fluid">
+                                </a>
+                                <img src="img/iso2015.png" alt="ISO 2015" class="cert-logo">
+                                <img src="img/iaf.png" alt="IAF Certification" class="cert-logo">
+                                <img src="img/iso27001.png" alt="ISO 27001" class="cert-logo">
+                                <img src="img/isoscc.png" alt="ISO SCC" class="cert-logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <!-- Top Bar End -->
+
+
+            <!-- Nav Bar Start -->
+            <div class="nav-bar">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                        <a href="#" class="navbar-brand">MENU</a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav mr-auto">
+                                <a href="index.html" class="nav-item nav-link">Home</a>
+                                <a href="about.html" class="nav-item nav-link">About us</a>
+                                <div class="nav-item dropdown">
+                                    <a href="service.html" target="_self" class="nav-link dropdown-toggle" data-toggle="dropdown">Services</a>
+                                    <div class="dropdown-menu">
+                                        <a href="servicegpon.html" class="dropdown-item">GPON</a>
+                                        <a href="servicefiberoptics.html" class="dropdown-item">Fiber Optics</a>
+                                        <a href="servicedoraccess.html" class="dropdown-item">Door Access</a>
+                                        <a href="serviceenterprisewifi.html" class="dropdown-item">Enterprise Wifi</a>
+                                        <a href="servicecctv.html" class="dropdown-item">CCTV</a>
+                                        <a href="servicesturcturedcabling.html" class="dropdown-item">Structured Cabling</a>
+                                    </div>
+                                </div>
+                                <a href="portfolio.html" class="nav-item nav-link active">Projects</a>
+                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                                <a href="careers.html" class="nav-item nav-link">Careers</a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- Nav Bar End -->
+            
+            
+           <!-- Page Header Start -->
+            <div class="page-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>House of IT Projects</h2>
+                        </div>
+                        <div class="col-12">
+                            <a href="index.html">Home</a>
+                            <a href="portfolio.html">Projects</a>
+                            <h5>Click on the <strong>Project Titles Tab</strong> and <strong>Video buttons</strong> below to learn more about the projects.</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Page Header End -->
+
+
+            <!-- Portfolio Start -->
+            <script>
+            document.addEventListener('DOMContentLoaded', () => {
+    const filters = document.querySelectorAll('#portfolio-flters li'); // Filter buttons
+    const portfolioItems = document.querySelectorAll('.portfolio-item'); // Portfolio items
+    const loadMoreBtn = document.querySelector('.load-more-btn'); // Load More button
+    const initialDisplayCount = 6; // Number of items to display initially
+    let currentFilter = '*'; // Default filter (show all items)
+    let isShowingAll = false; // Track whether all items in the filter are visible
+
+    // Function to apply filtering and display logic
+    const updatePortfolioDisplay = () => {
+        let visibleCount = 0;
+
+        portfolioItems.forEach(item => {
+            const isMatchingFilter = currentFilter === '*' || item.classList.contains(currentFilter.substring(1));
+
+            // Show up to the initial count of matching items, or all if "Load More" is active
+            if (isMatchingFilter && (isShowingAll || visibleCount < initialDisplayCount)) {
+                item.style.display = 'block';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // Check if there are more hidden items matching the filter
+        const hiddenItems = Array.from(portfolioItems).filter(item => item.style.display === 'none' &&
+            (currentFilter === '*' || item.classList.contains(currentFilter.substring(1))));
+
+        // Toggle Load More button based on remaining hidden items
+        loadMoreBtn.style.display = hiddenItems.length > 0 ? 'inline-block' : 'none';
+        loadMoreBtn.textContent = isShowingAll ? 'Minimize' : 'Load More';
+    };
+
+    // Apply initial setup
+    updatePortfolioDisplay();
+
+    // Filter button click event
+    filters.forEach(filter => {
+        filter.addEventListener('click', () => {
+            // Reset to initial view when a new filter is applied
+            isShowingAll = false;
+
+            // Update active filter button
+            document.querySelector('#portfolio-flters .filter-active').classList.remove('filter-active');
+            filter.classList.add('filter-active');
+
+            // Update the current filter
+            currentFilter = filter.getAttribute('data-filter');
+
+            // Reapply the portfolio display logic for the selected filter
+            updatePortfolioDisplay();
+        });
+    });
+
+    // Load More button click event
+    loadMoreBtn.addEventListener('click', () => {
+        isShowingAll = !isShowingAll; // Toggle between showing all and minimizing
+        updatePortfolioDisplay(); // Reapply display logic based on the toggle state
+    });
+
+    portfolioItems.forEach(item => {
+        item.style.marginBottom = '0'; // Remove any potential gap below hidden items
+    });
+});
+
+            </script>
+            <div class="portfolio">
+                <div class="container">
+                    <!--portfolio filters-->
+                    <div class="row">
+                        <div class="col-12">
+                            <ul id="portfolio-flters">
+                                <li data-filter="*" class="filter-active">All</li>
+                                <li data-filter=".first">Complete</li>
+                                <li data-filter=".second">Running</li>
+                                <li data-filter=".third">Upcoming</li>
+                            </ul>
+                        </div>
+                        <div class="col-12">
+                            <ul id="portfolio-flters">
+                                <li data-filter=".fourth">CCTV</li>
+                                <li data-filter=".fifth">GPON</li>
+                                <li data-filter=".sixth">StructuredCabling</li>
+                            </ul>
+                        </div>
+                        <div class="col-12">
+                            <ul id="portfolio-flters">
+                                <li data-filter=".seventh">Door Access</li>
+                                <li data-filter=".eigth">Enterpise Wifi</li>
+                                <li data-filter=".ninth">Fiber Optics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--portfolio items-->
+                    <div class="row portfolio-container">
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item first fourth fifth sixth seventh eigth ninth fadeInUp" data-wow-delay="0.1s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-1.jpg" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "Successfully completed an interior fit-out project for VBP, integrating CCTV, door access systems, and a cutting-edge server room—seamlessly combining design, security, and efficiency."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item second ninth fifth fadeInUp" data-wow-delay="0.1s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-10.png" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "Successfully completed an interior fit-out project for VBP, integrating CCTV, door access systems, and a cutting-edge server room—seamlessly combining design, security, and efficiency."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item first fourth fifth ninth wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-11.png" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "Successfully completed an interior fit-out project for VBP, integrating CCTV, door access systems, and a cutting-edge server room—seamlessly combining design, security, and efficiency."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item second fourth ninth eigth fifth fadeInUp" data-wow-delay="0.1s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-12.png" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "Successfully completed an interior fit-out project for VBP, integrating CCTV, door access systems, and a cutting-edge server room—seamlessly combining design, security, and efficiency."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item first seventh eigth fifth fourth ninth wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-13.png" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "Successfully completed an interior fit-out project for VBP, integrating CCTV, door access systems, and a cutting-edge server room—seamlessly combining design, security, and efficiency."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div><div class="col-lg-4 col-md-6 col-sm-12 portfolio-item second fifth ninth seventh wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-14.png" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "Successfully completed an interior fit-out project for VBP, integrating CCTV, door access systems, and a cutting-edge server room—seamlessly combining design, security, and efficiency."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item third fifth ninth fourth wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-2.jpg" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "Deployment of 17F data and telephone system upgrade to a GPON solution for Waterfront Cebu Casino and Hotel, significantly enhancing connectivity, streamlining communication infrastructure, and ensuring future-proof efficiency for their operations."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item third fourth seventh wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-3.jpg" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "Rehabilitation of CCTV and Door Access Control Systems (DACS) across floors 6 to 15 for QPI, improving security infrastructure, optimizing system performance, and ensuring seamless operational reliability."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item first fourth fifth seventh eigth wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-4.jpg" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "Successfully completed a warehouse fit-out project for Lopez, integrating advanced CCTV systems, secure door access, and server rack installation—creating a functional, secure, and technology-driven space."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item second fourth fifth sixth seventh eigth ninth fadeInUp" data-wow-delay="0.5s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-5.jpg" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "Successfully completed CCTV installation, door access systems, access points, server racks, structured cabling, and UPS setup for floors 14 and 18 of Go Team—delivering a seamless, secure, and efficient infrastructure upgrade."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item third fifth ninth wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-6.jpg" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "GPON upgrade for Award Mortgage, replacing the outdated Ethernet infrastructure to enhance connectivity, boost network performance, and ensure a future-ready solution."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item first fifth ninth wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-7.png" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "GPON upgrade for Award Mortgage, replacing the outdated Ethernet infrastructure to enhance connectivity, boost network performance, and ensure a future-ready solution."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item first fifth ninth wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-9.png" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "GPON upgrade for Award Mortgage, replacing the outdated Ethernet infrastructure to enhance connectivity, boost network performance, and ensure a future-ready solution."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item first fifth ninth wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="portfolio-warp">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio-9.png" alt="Image">
+                                    <div class="portfolio-overlay">
+                                        <p>
+                                            "GPON upgrade for Award Mortgage, replacing the outdated Ethernet infrastructure to enhance connectivity, boost network performance, and ensure a future-ready solution."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-text">
+                                    <h3>
+                                        <a href="portfolio-vbpjeg.html" target="_blank" class="text-light">VBP Fit-out</a>
+                                    </h3>
+                                    <a class="btn" href="https://www.youtube.com/embed/Oi0SNlMzMjQ" target="_blank">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <a class="btn load-more-btn" href="javascript:void(0);">Load More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Portfolio End -->
+
+
+            <!-- Footer Start -->
+            <div class="footer wow fadeIn" data-wow-delay="0.3s">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="footer-contact">
+                                <h2>Office Contact</h2>
+                                <p><i class="fa fa-map-marker-alt"></i>3F Centro Fortuna Bldg, Mandaue City</p>
+                                <p><i class="fa fa-phone-alt"></i>032 434 5688</p>
+                                <p><i class="fa fa-envelope"></i>sales@houseofit.com.au</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="footer-link">
+                                <h2>Services Areas</h2>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled">
+                                            <li><a href="servicegpon.html" class="text-light">GPON</a></li>
+                                            <li><a href="servicefiberoptics.html" class="text-light">Fiber Optics</a></li>
+                                            <li><a href="servicedoraccess.html" class="text-light">Door Access</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled">
+                                            <li><a href="serviceenterprisewifi.html" class="text-light">Enterprise Wifi</a></li>
+                                            <li><a href="servicecctv.html" class="text-light">CCTV</a></li>
+                                            <li><a href="servicesturcturedcabling.html" class="text-light">Structured Cabling</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="footer-social">
+                                <h2>Connect with us</h2>
+                                <ul class="list-unstyled d-flex justify-content-md-start gap-3">
+                                    <li><a href="https://twitter.com/login" class="text-light"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://www.facebook.com/login.php" class="text-light"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="http://www.youtube.com/@HouseofI.T" class="text-light"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a href="https://www.instagram.com/accounts/login/" class="text-light"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/login" class="text-light"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container copyright">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Copyright &copy; 2012 <a href="#">House of IT</a>, All Right Reserved.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Designed By <a href="#">House of IT</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+
+            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/isotope/isotope.pkgd.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
