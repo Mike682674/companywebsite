@@ -28,6 +28,10 @@
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
         <link href="lib/slick/slick.css" rel="stylesheet">
         <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
@@ -69,7 +73,7 @@
                                 <a href="index.html" class="nav-item nav-link">Home</a>
                                 <a href="about.html" class="nav-item nav-link">About us</a>
                                 <div class="nav-item dropdown">
-                                    <a href="services.html" class="nav-link active dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                                    <a href="service.html" class="nav-item dropdown-toggle nav-link active" data-bs-toggle="dropdown">Services</a>
                                     <div class="dropdown-menu">
                                         <a href="servicegpon.html" class="dropdown-item">GPON</a>
                                         <a href="servicefiberoptics.html" class="dropdown-item">Fiber Optics</a>
@@ -124,10 +128,25 @@
                                         </p>
                                     </div>
                                 </div>
+                                <script>
+                                $(document).ready(function () {
+                                        // When modal is shown, there's no need to dynamically update the src since it's already set in your HTML.
+                                    $('#videoModal1').on('shown.bs.modal', function (e) {
+                                        console.log("Modal opened.");
+                                    });
+
+                                    // When modal is hidden, clear the iframe src to stop playback
+                                    $('#videoModal1').on('hidden.bs.modal', function () {
+                                        const iframe = $(this).find('iframe'); // Find the iframe in the modal
+                                        iframe.attr('src', ''); // Clear the src to stop both video and audio
+                                        console.log("Iframe src cleared, video and audio stopped.");
+                                    });
+                                });
+                                </script>
                                 <div class="service-text text-center">
                                     <h3><a href="servicegpon.html" class="nav-item nav-link">GPON</a></h3>
                                     <!-- Button to trigger the second modal -->
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#videoModal1">See Video</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#videoModal1">See Video</button>
                                 </div>
                         
                                 <div class="modal fade" id="videoModal1" tabindex="-1" aria-labelledby="videoModalLabel1" aria-hidden="true">
@@ -164,24 +183,40 @@
                                         </p>
                                     </div>
                                 </div>
+                                <script>
+                                    $(document).ready(function () {
+                                            // When modal is shown, there's no need to dynamically update the src since it's already set in your HTML.
+                                        $('#videoModal2').on('shown.bs.modal', function (e) {
+                                            console.log("Modal opened.");
+                                        });
+    
+                                        // When modal is hidden, clear the iframe src to stop playback
+                                        $('#videoModal2').on('hidden.bs.modal', function () {
+                                            const iframe = $(this).find('iframe'); // Find the iframe in the modal
+                                            iframe.attr('src', ''); // Clear the src to stop both video and audio
+                                            console.log("Iframe src cleared, video and audio stopped.");
+                                        });
+                                    });
+                                    </script>
                                 <div class="service-text text-center">
                                     <h3><a href="servicefiberoptics.html" class="nav-item nav-link">Fiber Optics</a></h3>
                                     <!-- Button to trigger the second modal -->
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal2">See Video</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#videoModal2">See Video</button>
                                 </div>
                         
                                 <div class="modal fade" id="videoModal2" tabindex="-1" aria-labelledby="videoModalLabel2" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
+                                    <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="videoModalLabel2">Fiber Optics in Business</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="ratio ratio-16x9">
+                                                <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe src="https://www.youtube.com/embed/9ztgc9lDRug" 
                                                             title="Fiber Optics Benefits to Businesses" 
                                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                            referrerpolicy="strict-origin-when-cross-origin"
                                                             allowfullscreen>
                                                     </iframe>
                                                 </div>
@@ -201,24 +236,40 @@
                                         </p>
                                     </div>
                                 </div>
+                                <script>
+                                    $(document).ready(function () {
+                                            // When modal is shown, there's no need to dynamically update the src since it's already set in your HTML.
+                                        $('#videoModal3').on('shown.bs.modal', function (e) {
+                                            console.log("Modal opened.");
+                                        });
+    
+                                        // When modal is hidden, clear the iframe src to stop playback
+                                        $('#videoModal3').on('hidden.bs.modal', function () {
+                                            const iframe = $(this).find('iframe'); // Find the iframe in the modal
+                                            iframe.attr('src', ''); // Clear the src to stop both video and audio
+                                            console.log("Iframe src cleared, video and audio stopped.");
+                                        });
+                                    });
+                                    </script>
                                 <div class="service-text text-center">
                                     <h3><a href="servicedoraccess.html" class="nav-item nav-link">Door Access</a></h3>
                                     <!-- Button to trigger the second modal -->
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal3">See Video</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#videoModal3">See Video</button>
                                 </div>
                         
                                 <div class="modal fade" id="videoModal3" tabindex="-1" aria-labelledby="videoModalLabel3" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
+                                    <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="videoModalLabel3">Protecting your Business with Door Access Control Systems</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="ratio ratio-16x9">
+                                                <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe src="https://www.youtube.com/embed/-IQJ4eB6ev4" 
                                                             title="Fiber Optics Benefits to Businesses" 
                                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                            referrerpolicy="strict-origin-when-cross-origin"
                                                             allowfullscreen>
                                                     </iframe>
                                                 </div>
@@ -239,24 +290,40 @@
                                         </p>
                                     </div>
                                 </div>
+                                <script>
+                                    $(document).ready(function () {
+                                            // When modal is shown, there's no need to dynamically update the src since it's already set in your HTML.
+                                        $('#videoModal4').on('shown.bs.modal', function (e) {
+                                            console.log("Modal opened.");
+                                        });
+    
+                                        // When modal is hidden, clear the iframe src to stop playback
+                                        $('#videoModal4').on('hidden.bs.modal', function () {
+                                            const iframe = $(this).find('iframe'); // Find the iframe in the modal
+                                            iframe.attr('src', ''); // Clear the src to stop both video and audio
+                                            console.log("Iframe src cleared, video and audio stopped.");
+                                        });
+                                    });
+                                    </script>
                                 <div class="service-text text-center">
                                     <h3><a href="serviceenterprisewifi.html" class="nav-item nav-link">Enterprise Wifi</a></h3>
                                     <!-- Button to trigger the second modal -->
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal4">See Video</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#videoModal4">See Video</button>
                                 </div>
                         
                                 <div class="modal fade" id="videoModal4" tabindex="-1" aria-labelledby="videoModalLabel4" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
+                                    <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="videoModalLabel4">Wifi Systems High Speed Bandwith in Several Locations</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="ratio ratio-16x9">
+                                                <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe src="https://www.youtube.com/embed/jrdpby3KnJA" 
                                                             title="Fiber Optics Benefits to Businesses" 
                                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                            referrerpolicy="strict-origin-when-cross-origin"
                                                             allowfullscreen>
                                                     </iframe>
                                                 </div>
@@ -277,24 +344,40 @@
                                         </p>
                                     </div>
                                 </div>
+                                <script>
+                                    $(document).ready(function () {
+                                            // When modal is shown, there's no need to dynamically update the src since it's already set in your HTML.
+                                        $('#videoModal5').on('shown.bs.modal', function (e) {
+                                            console.log("Modal opened.");
+                                        });
+    
+                                        // When modal is hidden, clear the iframe src to stop playback
+                                        $('#videoModal5').on('hidden.bs.modal', function () {
+                                            const iframe = $(this).find('iframe'); // Find the iframe in the modal
+                                            iframe.attr('src', ''); // Clear the src to stop both video and audio
+                                            console.log("Iframe src cleared, video and audio stopped.");
+                                        });
+                                    });
+                                    </script>
                                 <div class="service-text text-center">
                                     <h3><a href="servicecctv.html" class="nav-item nav-link">CCTV</a></h3>
                                     <!-- Button to trigger the second modal -->
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal5">See Video</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#videoModal5">See Video</button>
                                 </div>
                         
                                 <div class="modal fade" id="videoModal5" tabindex="-1" aria-labelledby="videoModalLabel5" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
+                                    <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="videoModalLabel5">Closed Circuit Television Systems</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="ratio ratio-16x9">
+                                                <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe src="https://www.youtube.com/embed/U6ursBXSaqs" 
                                                             title="Fiber Optics Benefits to Businesses" 
                                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                            referrerpolicy="strict-origin-when-cross-origin"
                                                             allowfullscreen>
                                                     </iframe>
                                                 </div>
@@ -315,24 +398,40 @@
                                         </p>
                                     </div>
                                 </div>
+                                <script>
+                                    $(document).ready(function () {
+                                            // When modal is shown, there's no need to dynamically update the src since it's already set in your HTML.
+                                        $('#videoModal6').on('shown.bs.modal', function (e) {
+                                            console.log("Modal opened.");
+                                        });
+    
+                                        // When modal is hidden, clear the iframe src to stop playback
+                                        $('#videoModal6').on('hidden.bs.modal', function () {
+                                            const iframe = $(this).find('iframe'); // Find the iframe in the modal
+                                            iframe.attr('src', ''); // Clear the src to stop both video and audio
+                                            console.log("Iframe src cleared, video and audio stopped.");
+                                        });
+                                    });
+                                    </script>
                                 <div class="service-text text-center">
                                     <h3><a href="servicesturcturedcabling.html" class="nav-item nav-link">Structured Cabling</a></h3>
                                     <!-- Button to trigger the second modal -->
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal6">See Video</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#videoModal6">See Video</button>
                                 </div>
-                        
+                                
                                 <div class="modal fade" id="videoModal6" tabindex="-1" aria-labelledby="videoModalLabel6" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
+                                    <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="videoModalLabel6">Closed Circuit Television Systems</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <h5 class="modal-title" id="videoModalLabel6">Structured Cabling: Future Proofing</h5>
+                                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="ratio ratio-16x9">
+                                                <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe src="https://www.youtube.com/embed/k8mCWycc3gU" 
                                                             title="Fiber Optics Benefits to Businesses" 
                                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                            referrerpolicy="strict-origin-when-cross-origin"
                                                             allowfullscreen>
                                                     </iframe>
                                                 </div>

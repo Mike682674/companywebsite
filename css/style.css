@@ -29,8 +29,8 @@
     height: auto; /* Ensures the aspect ratio is preserved */
 }
 
-/* Adjustments for very small screens */
-@media (max-width: 480px) {
+    /* Adjustments for very small screens */
+    @media (max-width: 480px) {
     .cert-logo {
         width: 30px; /* Adjust for very small screens */.page-header {
             position: relative;
@@ -66,7 +66,7 @@
         .page-header a:hover {
             color: #ffffff;
         }
-        
+    }
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .page-header h2 {
@@ -78,10 +78,8 @@
                 padding: 30px 0;
             }
         }
-        nav
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15); /* Lighter shadow on small screens */
-        }
-    }
+        
+        }       
 
 /**********************************/
 /************ General CSS **********/
@@ -2008,7 +2006,6 @@ img {
 
 .sidebar .category-widget ul li span {
     display: inline-block;
-    float: right;
 }
 
 .sidebar .sidebar-widget .tag-widget {

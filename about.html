@@ -27,6 +27,11 @@
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
         <link href="lib/slick/slick.css" rel="stylesheet">
         <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
@@ -440,7 +445,7 @@
                     </div>
                     <div class="row" style="display: none;">
                         <div class="col-sm-12">
-                            <div class="core-slider slick-initialized slick-slider slick-dotted" style="">
+                            <div class="core-slider slick-initialized slick-slider slick-dotted">
                                 <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 0px; transform: translate3d(0px, 0px, 0px);"><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" style="width: 0px;">
                                     <div class="core-slide-wrap">
                                         <div class="core-slide-icon">
@@ -766,9 +771,38 @@
             <!-- whychooseus end-->
 
             <!-- Video Start -->
+            <script>
+                //video modal index
+                $(document).ready(function () {
+                    var $videoSrc; // Declare a variable to store the video URL
+        
+                    // Capture the video URL from the button's data-src attribute
+                    $('.btn-play').click(function () {
+                        $videoSrc = $(this).data('src'); // Get the video URL
+                        console.log("Video URL captured: " + $videoSrc); // Debugging output
+                    });
+        
+                    // When the modal is shown, set the iframe src with autoplay
+                    $('#videoModal').on('show.bs.modal', function () {
+                        if ($videoSrc) {
+                            $("#video").attr('src', $videoSrc + "?autoplay=1&modestbranding=1&showinfo=0");
+                            console.log("Iframe src set to: " + $videoSrc);
+                        } else {
+                            console.error("Video URL is missing!");
+                        }
+                    });
+        
+                    // When the modal is hidden, clear the iframe src to stop playback
+                    $('#videoModal').on('hidden.bs.modal', function () {
+                        $("#video").attr('src', ''); // Reset the iframe src
+                        console.log("Iframe src cleared.");
+                    });
+                });
+    
+                 </script>
             <div class="video wow fadeIn" data-wow-delay="0.1s">
                 <div class="container">
-                    <button type="button" class="btn-play" data-toggle="modal" data-src="" data-target="#videoModal">
+                    <button type="button" class="btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/GnyFQ-_srEY" data-target="#videoModal">
                         <span></span>
                     </button>
                 </div>
@@ -783,7 +817,7 @@
                             </button>        
                             <!-- 16:9 aspect ratio -->
                             <div class="embed-responsive embed-responsive-16by9">
-                                <iframe width="928" height="522" src="https://www.youtube.com/embed/GnyFQ-_srEY" title="The Best I.T Solutions Partner - House of I.T" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
                             </div>
                         </div>
                     </div>

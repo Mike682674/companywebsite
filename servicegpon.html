@@ -25,6 +25,11 @@
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
         <link href="lib/slick/slick.css" rel="stylesheet">
         <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
@@ -157,29 +162,58 @@
             </div>
             
             <!-- Video Start -->
+            <script>
+              //video modal index
+              $(document).ready(function () {
+                  var $videoSrc; // Declare a variable to store the video URL
+      
+                  // Capture the video URL from the button's data-src attribute
+                  $('.btn-play').click(function () {
+                      $videoSrc = $(this).data('src'); // Get the video URL
+                      console.log("Video URL captured: " + $videoSrc); // Debugging output
+                  });
+      
+                  // When the modal is shown, set the iframe src with autoplay
+                  $('#videoModal').on('show.bs.modal', function () {
+                      if ($videoSrc) {
+                          $("#video").attr('src', $videoSrc + "?autoplay=1&modestbranding=1&showinfo=0");
+                          console.log("Iframe src set to: " + $videoSrc);
+                      } else {
+                          console.error("Video URL is missing!");
+                      }
+                  });
+      
+                  // When the modal is hidden, clear the iframe src to stop playback
+                  $('#videoModal').on('hidden.bs.modal', function () {
+                      $("#video").attr('src', ''); // Reset the iframe src
+                      console.log("Iframe src cleared.");
+                  });
+              });
+  
+               </script>
             <div class="video wow fadeIn" data-wow-delay="0.1s">
-                <div class="container">
-                    <button type="button" class="btn-play" data-toggle="modal" data-src="" data-target="#videoModal">
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>        
-                            <!-- 16:9 aspect ratio -->
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe width="928" height="522" src="https://www.youtube.com/embed/v2MUM1K9lrs" title="The Best I.T Solutions Partner - House of I.T" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <div class="container">
+                  <button type="button" class="btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/v2MUM1K9lrs" data-target="#videoModal">
+                      <span></span>
+                  </button>
+              </div>
+          </div>
+          
+          <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-body">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>        
+                          <!-- 16:9 aspect ratio -->
+                          <div class="embed-responsive embed-responsive-16by9">
+                              <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
             <!-- Video End -->
 
             <div class="about wow fadeInUp" data-wow-delay="0.1s">
